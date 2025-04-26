@@ -5,6 +5,7 @@ Acme-CFWorker 是一个基于 Cloudflare Worker 的轻量代理，用于与 Goog
 
 ## 核心功能
 - **动态路径代理**：根据请求路径构造目标 URL，智能转发请求至 Google ACME 服务。
+- **IP白名单**：仅允许特定IP地址访问。
 - **CORS 支持**：自动在响应中添加 `Access-Control-Allow-Origin: *` 头，方便跨域访问。
 - **透明代理**：完整保留原始请求的 HTTP 方法、头部以及请求体，提高数据传输的准确性。
 - **错误处理**：在请求转发时捕获异常，确保在代理出错时返回明确的错误信息。
@@ -13,6 +14,7 @@ Acme-CFWorker 是一个基于 Cloudflare Worker 的轻量代理，用于与 Goog
 1. 登录 Cloudflare Workers 管理平台。
 2. 新建或编辑 Worker，将 `worker.js` 文件中的代码部署到 Worker 服务中。
 3. 配置自定义域名或路由，以使用该代理服务。
+4. IP白名单设置在对应Worker -> 设置 -> 变量 -> 添加变量名 "IP_WHITELIST"，多个IP用英文逗号隔开。
 
 ## 使用示例
 - **根路径请求**：
